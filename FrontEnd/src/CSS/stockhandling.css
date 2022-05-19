@@ -1,7 +1,8 @@
-body{
+body {
     background-color: #f1f1f1;
 }
-.stockHandling_container{
+
+.stockHandling_container {
     background-color: none;
     width: 1600px;
     margin-left: 250px;
@@ -9,28 +10,32 @@ body{
     position: relative;
 }
 
-.headTitle h1{
+.headTitle {
+    display: flex;
+}
+
+.headTitle h1 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 3em;
 }
 
-.controllerBar{
+.controllerBar {
     background-color: yellow;
     width: 1600px;
 }
 
-.controllerBar_set{
+.controllerBar_set {
     background-color: none;
     width: max-content;
     position: absolute;
     right: 0px;
 }
 
-.adminStockFilter{
+.adminStockFilter {
     display: inline-block;
 }
 
-.adminStockFilter select{
+.adminStockFilter select {
     height: 35px;
     border: solid;
     border-width: 0.2em;
@@ -38,7 +43,7 @@ body{
     border-radius: 5px;
 }
 
-.stocksearch{
+.stocksearch {
     display: inline-block;
 }
 
@@ -59,12 +64,12 @@ body{
     font-weight: 600;
 }
 
-.stockButtonContainer{
+.stockButtonContainer {
     display: inline-block;
     margin-left: 600px;
 }
 
-.pdfBtn{
+.pdfBtn {
     border: solid;
     border-width: 0.2em;
     border-color: #707070;
@@ -76,12 +81,12 @@ body{
 
 }
 
-.pdfBtn:hover{
+.pdfBtn:hover {
     background-color: rgb(175, 175, 175);
     cursor: pointer;
 }
 
-.addItemsBtn{
+.addItemsBtn {
     border: solid;
     border-width: 0.2em;
     border-color: #707070;
@@ -92,28 +97,31 @@ body{
     font-weight: 600;
 }
 
-.addItemsBtn:hover{
+.addItemsBtn:hover {
     background-color: rgb(175, 175, 175);
     cursor: pointer;
 }
 
-.stockTableContainer{
+.stockTableContainer {
     background-color: none;
     margin-top: 150px;
+    margin-bottom: 100px;
 }
 
-.stockTable{
+.stockTable {
     width: 100%;
 }
 
-.table, th, td{
+.table,
+th,
+td {
     border: solid;
     border-width: 3px;
     border-color: #f1f1f1;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.stockTable tr{
+.stockTable tr {
     text-align: center;
     background-color: #FFFFFF;
     height: 45px;

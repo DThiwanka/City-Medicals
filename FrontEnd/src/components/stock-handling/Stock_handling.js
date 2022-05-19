@@ -58,6 +58,8 @@ const Stock_handling = ({ history, match }) => {
 
             <div className='headTitle'>
                 <h1>Stock Handling</h1>
+                {loadingDelete && <Loader />}
+                {loadingCreate && <Loader />}
             </div>
 
             <div className='controllerBar'>
@@ -87,9 +89,9 @@ const Stock_handling = ({ history, match }) => {
 
             </div>
 
-            {loadingDelete && <Loader/>}
+            
             {errorDelete && <Message variant='danger'>{errorDelete}</Message>}
-            {loadingCreate && <Loader/>}
+            
             {errorCreate && <Message variant='danger'>{errorCreate}</Message>}
 
             {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : (
@@ -118,7 +120,7 @@ const Stock_handling = ({ history, match }) => {
                                     <td>
                                         <Link to={`/admin/product/${product._id}/edit`}>
                                             <button type='button' className='stckChangeBtn'>
-                                                <i class="fas fa-edit"></i> Edit
+                                                <i className="fas fa-edit"></i> Edit
                                             </button>
                                         </Link> &nbsp;
                                         <button type='button' className='stckChangeBtn' onClick={() => deleteHandler(product._id)}>

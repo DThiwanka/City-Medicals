@@ -3,7 +3,7 @@
     src: url(../Fonts/SamsungSharpSans-Bold.ttf);
 }
 
-.mainContainer{
+.mainContainer {
     background-color: none;
     width: max-content;
     margin-top: 213px;
@@ -11,42 +11,42 @@
     margin-left: auto;
 }
 
-.loginTitleContainer{
+.loginTitleContainer {
     background-color: none;
     width: 275px;
 }
 
-.mainHead{
+.mainHead {
     line-height: 0.5em;
 }
 
-.mainHead h1{
+.mainHead h1 {
     font-family: mySamsungSharpSans;
     font-size: 1.8em;
 }
 
-.mainHead p{
+.mainHead p {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 0.8em;
 }
 
-.loginform{
+.loginform {
     background-color: none;
 }
 
-.loginform label{
+.loginform label {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 500;
 }
 
-.imageChooser{
+.imageChooser {
     border: none;
     margin-bottom: 10px;
     padding-left: 2px;
     padding-right: 2px;
 }
 
-.inputField{
+.inputField {
     border-radius: 5px;
     border-style: solid;
     border-color: #B8B8B8;
@@ -60,19 +60,19 @@
     margin-bottom: 10px;
 }
 
-.checkBox{
+.checkBox {
     width: 15px;
     height: 15px;
 }
 
-.loginBtnContainer{
+.loginBtnContainer {
     background-color: none;
     width: max-content;
     margin-left: auto;
     margin-right: 0;
 }
 
-.loginBtnContainer button{
+.loginBtnContainer button {
     width: 80px;
     height: 28px;
     margin-top: 20px;
@@ -82,7 +82,7 @@
     color: #FFFFFF;
 }
 
-.loginBtnContainer button:hover{
+.loginBtnContainer button:hover {
     background-color: #018eb9;
     box-shadow: 2px 5px 5px rgb(177, 177, 177);
     cursor: pointer;
@@ -111,13 +111,13 @@
     cursor: pointer;
 }
 
-.newCusPartContainer p{
+.newCusPartContainer p {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 500;
     font-size: 0.9em;
 }
 
-#backBtn button{
+#backBtn button {
     width: 80px;
     height: 25px;
     background-color: #222222;
@@ -128,9 +128,21 @@
     font-weight: 600;
 }
 
-#backBtn button:hover{
+#backBtn button:hover {
     background-color: #d3d3d3;
     box-shadow: 2px 5px 5px rgb(177, 177, 177);
     cursor: pointer;
     color: #000000;
+}
+
+
+
+
+
+
+
+/* Choose Image File CSS - Add Stock */
+.imageChooser {
+    width: 250px;
+    height: 25px;
 }

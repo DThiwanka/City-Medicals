@@ -113,24 +113,26 @@ const Medicine = () => {
             {products.map(product => (
               <div className="itemBox">
                 <tabel>
-                  <tr>
-                    <img src={product.image} />
-                  </tr>
-                  <tr>
-                    <h5>{product.name}</h5>
-                  </tr>
-                  <tr>
-                    <p>{product.category}</p>
-                  </tr>
-                  <tr>
-                    <p className="itemStatus" style={{ color: 'Green' }}>{product.countInStock > 0 ? 'In Stock' : 'Out Of Stock'}</p>
-                  </tr> <br />
-                  <tr>
-                    <p className="itemPrice">Rs.{product.price}</p>
-                  </tr>
-                  <tr>
-                    <button type="button" disabled={product.countInStock === 0}>To Cart</button>
-                  </tr>
+                  <tbody>
+                    <tr>
+                      <img src={product.image} />
+                    </tr>
+                    <tr>
+                      <h5>{product.name}</h5>
+                    </tr>
+                    <tr>
+                      <p>{product.category}</p>
+                    </tr>
+                    <tr>
+                      <p className="itemStatus" style={{ color: 'Green' }}>{product.countInStock > 0 ? 'In Stock' : 'Out Of Stock'}</p>
+                    </tr> <br />
+                    <tr>
+                      <p className="itemPrice">Rs.{product.price}</p>
+                    </tr>
+                    <tr>
+                      <button type="button" disabled={product.countInStock === 0}>To Cart</button>
+                    </tr>
+                  </tbody>
                 </tabel>
               </div>
             ))}

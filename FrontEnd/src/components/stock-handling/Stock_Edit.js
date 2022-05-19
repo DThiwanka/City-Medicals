@@ -52,7 +52,7 @@ const Stock_Edit = ({ match, history }) => {
     }, [dispatch, history, productId, product, successUpdate])
 
 
-    const uploadingFileHandler = async (e) => {
+    const uploadFileHandler = async (e) => {
         const file = e.target.files[0]
         const formData = new FormData()
         formData.append('image', file)
@@ -108,8 +108,8 @@ const Stock_Edit = ({ match, history }) => {
                 </div>
             </div> <br />
             {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : (
-                <form className='loginform' onSubmit={submitHandler}>
-                    <label for='name'>Name</label><br />
+                <form action='/api/upload/' encType='multipart/form-data' className='loginform' onSubmit={submitHandler}>
+                    <label htmlFor='name'>Product Name</label><br />
                     <input
                         type='name'
                         placeholder='Enter name'
@@ -119,7 +119,7 @@ const Stock_Edit = ({ match, history }) => {
                         onChange={(e) => setName(e.target.value)}
                     /><br />
 
-                    <label for='price'>Price</label><br />
+                    <label htmlFor='price'>Product Price(LKR)</label><br />
                     <input
                         type='number'
                         placeholder='Enter price'
@@ -129,7 +129,7 @@ const Stock_Edit = ({ match, history }) => {
                         onChange={(e) => setPrice(e.target.value)}
                     /><br />
 
-                    <label for="brand">Brand</label><br />
+                    <label htmlFor="brand">Product Brand</label><br />
                     <input
                         type='text'
                         placeholder='Enter brand'
@@ -139,7 +139,7 @@ const Stock_Edit = ({ match, history }) => {
                         onChange={(e) => setBrand(e.target.value)}
                     /><br />
 
-                    <label for='countInStock'>Count In Stock</label><br />
+                    <label htmlFor='countInStock'>Product Count In Stock</label><br />
                     <input
                         type='number'
                         placeholder='Enter CountInStock'
@@ -149,7 +149,15 @@ const Stock_Edit = ({ match, history }) => {
                         onChange={(e) => setCountInStock(e.target.value)}
                     /><br />
 
-                    <label for="category">Category</label><br />
+                    <label htmlFor="category">Product Category</label><br />
+                    {/* <select name='category' id='category'>
+                        <option value={category} onChange={(e) => setCategory(e.target.value)}>Medicine</option>
+                        <option value={category} onChange={(e) => setCategory(e.target.value)}>Baby Items</option>
+                        <option value={category} onChange={(e) => setCategory(e.target.value)}>Beauty</option>
+                        <option value={category} onChange={(e) => setCategory(e.target.value)}>Local Medicine</option>
+                        <option value={category} onChange={(e) => setCategory(e.target.value)}>Medical Equipments</option>
+                        <option value={category} onChange={(e) => setCategory(e.target.value)}>Fitness & Supplements</option>
+                    </select> */}
                     <input
                         type='text'
                         placeholder='Enter category'
@@ -159,7 +167,7 @@ const Stock_Edit = ({ match, history }) => {
                         onChange={(e) => setCategory(e.target.value)}
                     /><br />
 
-                    <label for="description">Description</label><br />
+                    <label htmlFor="description">Product Description</label><br />
                     <input
                         type='text'
                         placeholder='Enter description'
@@ -169,22 +177,15 @@ const Stock_Edit = ({ match, history }) => {
                         onChange={(e) => setDescription(e.target.value)}
                     /><br />
 
-                    <label for="image">Image</label><br />
-                    <input
-                        type='text'
-                        placeholder='Enter image url'
-                        id='image'
-                        className='inputField'
-                        value={image}
-                        onChange={(e) => setImage(e.target.value)}
-                    /><br />
+                    <label htmlFor="image_file">Select Product Image</label><br />
                     <input
                         type='file'
                         label='Choose File'
                         id='image_file'
+                        name='image'
                         custom
                         className='imageChooser'
-                        onChange={uploadingFileHandler}
+                        onChange={uploadFileHandler}
                     /> <br />
                     {uploading && <Loader />}<br />
 

@@ -51,7 +51,7 @@ const Header = () => {
                         )}
                         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                         {userInfo && userInfo.isAdmin && (
-                            <div class="dropdown">
+                            <div className="dropdown">
                                 <NavDropdown title='Admin' id='adminmenu'>
                                     <a href="/admin/userHandling">Users</a> &nbsp;
                                     <a href="/admin/stockHandling">Products</a>

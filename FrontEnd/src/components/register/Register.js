@@ -50,7 +50,7 @@ const Register = ({ location, history }) => {
       </div> <br />
 
       <form className='loginform' onSubmit={submitHandler}>
-        <label for='name'>Name</label><br />
+        <label htmlFor='name'>Name</label><br />
         <input
           type='name'
           placeholder='Enter name'
@@ -60,7 +60,7 @@ const Register = ({ location, history }) => {
           onChange={(e) => setName(e.target.value)}
         /><br />
 
-        <label for='email'>Email</label><br />
+        <label htmlFor='email'>Email</label><br />
         <input
           type='email'
           placeholder='Enter email'
@@ -70,7 +70,7 @@ const Register = ({ location, history }) => {
           onChange={(e) => setEmail(e.target.value)}
         /><br />
 
-        <label for="password">Password</label><br />
+        <label htmlFor="password">Password</label><br />
         <input
           type='password'
           placeholder='Enter password'
@@ -80,7 +80,7 @@ const Register = ({ location, history }) => {
           onChange={(e) => setPassword(e.target.value)}
         /><br />
 
-        <label for="confirmPassword">Confirm Password</label><br />
+        <label htmlFor="confirmPassword">Confirm Password</label><br />
         <input
           type='password'
           placeholder='Confirm password'

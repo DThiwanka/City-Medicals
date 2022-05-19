@@ -57,13 +57,13 @@ const UserEdit = ({ match, history }) => {
                 <div className='mainHead'>
                     <h1>Edit User</h1>
                     <p>You can Edit User using this form</p>
-                    {loadingUpdate && <Loader/>}
+                    {loadingUpdate && <Loader />}
                     {errorUpdate && <Message variant='danger'>{errorUpdate}</Message>}
                 </div>
             </div> <br />
             {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : (
                 <form className='loginform' onSubmit={submitHandler}>
-                    <label for='name'>Name</label><br />
+                    <label htmlFor='name'>Name</label><br />
                     <input
                         type='name'
                         placeholder='Enter name'
@@ -73,7 +73,7 @@ const UserEdit = ({ match, history }) => {
                         onChange={(e) => setName(e.target.value)}
                     /><br />
 
-                    <label for='email'>Email</label><br />
+                    <label htmlFor='email'>Email</label><br />
                     <input
                         type='email'
                         placeholder='Enter email'
@@ -83,7 +83,7 @@ const UserEdit = ({ match, history }) => {
                         onChange={(e) => setEmail(e.target.value)}
                     /><br /><br />
 
-                    <label for="isAdmin">Is Admin?</label> &nbsp;
+                    <label htmlFor="isAdmin">Is Admin?</label> &nbsp;
                     <input
                         type='checkbox'
                         label='Is Admin'

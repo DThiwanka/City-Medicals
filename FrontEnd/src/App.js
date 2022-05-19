@@ -30,7 +30,7 @@ export default class App extends Component {
     return (
       <BrowserRouter key={App.BrowserRouter}>
 
-        {window.location.pathname !== "/admin/stockHandling" && window.location.pathname !== "/admin/userHandling" && window.location.pathname !== '/admin/user/:id/edit' && window.location.pathname !== "/admin/product/:id/edit" &&  <Header />}
+        {window.location.pathname !== "/admin/stockHandling" && window.location.pathname !== "/admin/userHandling" && window.location.pathname !== '/admin/user/:id/edit' && window.location.pathname !== "/admin/product/:id/edit" && <Header />}
 
         {window.location.pathname === "/admin/stockHandling" && <AdminHeader />}
         {window.location.pathname === "/admin/userHandling" && <AdminHeader />}
@@ -45,9 +45,7 @@ export default class App extends Component {
         <Route path="/medical_equipments" exact component={medicalEqui_cat} key={App.medicalEqui_cat}></Route>
         <Route path="/fitness_supplements" exact component={fitness_cat} key={App.fitness_cat}></Route>
         <Route path="/check" exact component={check} key={App.check}></Route>
-        <switch>
-          <Route path="/placed" exact component={placed} key={App.placed}></Route>
-        </switch>
+        <Route path="/placed" exact component={placed} key={App.placed}></Route>
         <Route path="/orderdetails" exact component={orderdetails} key={App.orderdetails}></Route>
         <Route path="/login" exact component={Login} key={App.Login}></Route>
         <Route path="/register" exact component={Register} key={App.Register}></Route>
@@ -58,9 +56,9 @@ export default class App extends Component {
         <Route path="/admin/product/:id/edit" exact component={Stock_Edit} key={App.Stock_Edit}></Route>
         <Route path="/admin/userHandling" exact component={User_Handling} key={App.User_Handling}></Route>
         <Route path="/admin/user/:id/edit" exact component={User_Edit} key={App.User_Edit}></Route>
-        
 
-        {window.location.pathname !== '/admin/stockHandling' && window.location.pathname !== '/admin/userHandling' && window.location.pathname !== '/admin/user/:id/edit' && window.location.pathname !== "/admin/product/:id/edit" &&  <Footer />}
+
+        {window.location.pathname !== '/admin/stockHandling' && window.location.pathname !== '/admin/userHandling' && window.location.pathname !== '/admin/user/:id/edit' && window.location.pathname !== "/admin/product/:id/edit" && <Footer />}
 
 
       </BrowserRouter>

@@ -43,7 +43,7 @@ const Login = ({ location, history }) => {
       </div> <br />
 
       <form className='loginform' onSubmit={submitHandler}>
-        <label for='email'>Email</label><br />
+        <label htmlFor='email'>Email</label><br />
         <input
           type='email'
           placeholder='Enter email'
@@ -53,7 +53,7 @@ const Login = ({ location, history }) => {
           onChange={(e) => setEmail(e.target.value)}
         /><br />
 
-        <label for="password">Password</label><br />
+        <label htmlFor="password">Password</label><br />
         <input
           type='password'
           placeholder='Enter password'

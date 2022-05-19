@@ -59,12 +59,12 @@ const adminHeader = () => {
                     <br /><br />
 
                     <tr>
-                        <a href="/">
+                        <Link to="/">
                             <div className='imgDiv'>
                                 <img src={home_ico} />
                             </div>
                             <p>Home</p>
-                        </a>
+                        </Link>
                     </tr>
                 </table>
             </div>
