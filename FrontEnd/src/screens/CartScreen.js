@@ -117,11 +117,13 @@ const CartScreen = () => {
             <p style={{ fontSize: 22, color: '#00da7e', fontWeight:"bold" }}>Total Price:  Rs.{getCartSubTotal()}</p>
           </div>
           <div>
-            <button className="button1">Checkout&nbsp;<i class="fa-solid fa-credit-card fa-lg"></i></button>
+            <Link to="/orderdetails">
+              <button className="button1">Checkout&nbsp;<i className="fa-solid fa-credit-card fa-lg"></i></button>
+            </Link>
           </div>
           {/* pdf generate */}
           <div>
-            <button className="button2" type="button" onClick={() => generatePDF(cartItems)}>Cart To Print&nbsp;<i class="fa-solid fa-print fa-lg"></i></button>
+            <button className="button2" type="button" onClick={() => generatePDF(cartItems)}>Cart To Print&nbsp;<i className="fa-solid fa-print fa-lg"></i></button>
           </div>
         </div>
       </div>

@@ -51,7 +51,7 @@ class Footer extends Component {
                 </div> */}
             </div>
           <div className="text-center text-light pt-1 pb-5">
-            © 2022 Copyright @CityMedicals
+            © 2022 Copyright @TeamRealm
             <a className="text-light" href="https:/TeamRealm.com/">
               <br/>All Right Reserved</a>
           </div>

@@ -7,7 +7,6 @@ import {toast} from 'react-toastify';
 import { getProductDetails } from "../redux/actions/productActions";
 import { addToCart } from "../redux/actions/cartActions";
 
-toast.configure()
 
 const ProductScreen = ({ match, history }) => {
   const [qty, setQty] = useState(1);
