@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
+// import TextField from '@mui/material/TextField';
 import SvgComponent from "./svg/editsvg";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
 toast.configure()
 
 
@@ -39,7 +40,7 @@ export default class editdetails extends Component {
     e.preventDefault();
     const id = this.props.match.params.id;
 
-    const {fname, email, tpnumber, tpnum, address, city, stpnumber, status } = this.state
+    const { fname, email, tpnumber, address, city, stpnumber, status } = this.state
     const data = {
       fname: fname,
       email: email,

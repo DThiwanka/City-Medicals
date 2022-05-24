@@ -49,10 +49,10 @@ function Orderdetails() {
 
   //  console.log(newDetail);
   
-  axios.post('http://localhost:8090/details/add',newDetail).then(()=>{
+  axios.post('http://localhost:5000/details/add',newDetail).then(()=>{
     alert("Details Added Successfully 🚀");
     console.log(newDetail);
-    window.location.reload();
+    window.location = "/checkout"
   }).catch((err)=>{
     alert(err);
     console.log("err");
@@ -110,7 +110,7 @@ function Orderdetails() {
                         {/* <input
                           type="email"
                           required 
-                          class="form-control"
+                          className="form-control"
                           id="form6Example1"
                           className="form-control"
                           placeholder="janith@profile.com"
@@ -118,9 +118,8 @@ function Orderdetails() {
 
                         /> */}
 
-                        <input type="text"  class="form-control"
+                        <input type="text"  className="form-control"
                           id="form6Example1"
-                          className="form-control"
                           placeholder="janith@profile.com"
         onChange={(e) => validateEmail(e)}/>
         <span style={{

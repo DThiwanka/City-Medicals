@@ -7,7 +7,7 @@ import NumberFormat from 'react-number-format';
 
 
 import './checkout.css';
-function App() {
+function Checkout() {
 
   const [name, setName] = useState();
   const [cardNumber, setCardnumber] = useState();
@@ -105,5 +105,5 @@ function App() {
   );
 }
 
-export default App;
+export default Checkout;
 
