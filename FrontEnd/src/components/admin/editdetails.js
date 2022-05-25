@@ -52,7 +52,7 @@ export default class editdetails extends Component {
     }
     console.log(data)
 
-    axios.put(`http://localhost:8090/details/update/${id}`, data).then((res) => {
+    axios.put(`http://localhost:5000/details/update/${id}`, data).then((res) => {
       if (res.data.success) {
         // alert("Post Updated Sucessfully.....!")
         toast.success('Customer Details updated Sucessfully.....!', { position: toast.POSITION.TOP_CENTER })
@@ -76,7 +76,7 @@ export default class editdetails extends Component {
 
     const id = this.props.match.params.id;
 
-    axios.get(`http://localhost:8090/details/${id}`).then((res) => {
+    axios.get(`http://localhost:5000/details/${id}`).then((res) => {
 
       if (res.data.success) {
         this.setState({
@@ -124,15 +124,7 @@ export default class editdetails extends Component {
 
             <div className="grid-child green text-left">
 
-              <Box
-                classname="mt-5"
 
-                sx={{
-                  '& > :not(style)': { m: 2, width: '50ch' },
-                }}
-                noValidate
-                autoComplete="off"
-              >
                 {/* <TextField id="outlined-basic" label="Outlined" variant="outlined" />
           <TextField id="filled-basic" label="Filled" variant="filled" /> */}
 
@@ -152,9 +144,10 @@ export default class editdetails extends Component {
                     type="text"
                     id="fname"
                     name="fname"
-                    className="form-control form-control-lg mt-1"
+                    className="form-control mt-1"
                     value={this.state.fname}
                     onChange={this.handleInputChange}
+                    style={{ width: '70%' }}
                   />
 
                   <label className="form-label  mt-1">
@@ -165,9 +158,10 @@ export default class editdetails extends Component {
                     id="email"
                     name="email"
                     disabled
-                    className="form-control form-control-lg  mt-1"
+                    className="form-control  mt-1"
                     value={this.state.email}
                     onChange={this.handleInputChange}
+                    style={{ width: '70%' }}
                   />
 
                   <label className="form-label mt-1">
@@ -178,9 +172,10 @@ export default class editdetails extends Component {
                     type="text"
                     id="tpnumber"
                     name="tpnumber"
-                    className="form-control form-control-lg  mt-1"
+                    className="form-control  mt-1"
                     value={this.state.tpnumber}
                     onChange={this.handleInputChange}
+                    style={{ width: '70%' }}
                   />
 
                   <label className="form-label  mt-1">
@@ -190,9 +185,10 @@ export default class editdetails extends Component {
                     type="text"
                     id="address"
                     name="address"
-                    className="form-control form-control-lg  mt-1"
+                    className="form-control  mt-1"
                     value={this.state.address}
                     onChange={this.handleInputChange}
+                    style={{ width: '70%' }}
                   />
 
                   <label className="form-label  mt-1">
@@ -202,7 +198,8 @@ export default class editdetails extends Component {
                     type="text"
                     id="city"
                     name="city"
-                    className="form-control form-control-lg  mt-1"
+                    className="form-control  mt-1"
+                    style={{ width: '70%' }}
                     value={this.state.city}
                     onChange={this.handleInputChange} />
 
@@ -214,8 +211,8 @@ export default class editdetails extends Component {
                     type="text"
                     id="stpnumber"
                     name="stpnumber"
-                    className="form-control form-control-lg  mt-1"
-
+                    className="form-control  mt-1"
+                    style={{ width: '70%' }}
                     value={this.state.stpnumber}
                     onChange={this.handleInputChange} />
 
@@ -224,10 +221,10 @@ export default class editdetails extends Component {
                     Status &nbsp;
                   </label>
 
-                  <select id="status" className="form-control form-control-lg dropdown-toggle selectpicker show-tick pb-2  mt-1"
+                  <select id="status" className="form-control dropdown-toggle selectpicker show-tick pb-2  mt-1"
                     onChange={this.handleInputChange}
                     data-role="select-dropdown"
-
+                    style={{ width: '70%' }}
                     name="status"
                     value={this.state.status} data-live-search="true" >
                     <option></option>
@@ -238,7 +235,7 @@ export default class editdetails extends Component {
 
                   <div className="mt-1">
 
-                    <button type="submit" className="btn btn-success d-block mr-0 ml-auto mb-3 mt-2" onClick={this.onSubmit}>
+                    <button type="submit" className="btn btn-success" onClick={this.onSubmit}>
                       <i className="fa fa-check-square"></i>
                       &nbsp; Update</button>
                   </div>
@@ -248,7 +245,7 @@ export default class editdetails extends Component {
 
 
                 </form>
-              </Box>
+             
 
             </div>
 

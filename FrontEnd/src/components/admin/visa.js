@@ -29,7 +29,7 @@ export default function RecordList() {
  // This method fetches the records from the database.
  useEffect(() => {
    async function getRecords() {
-     const response = await fetch(`http://localhost:8090/visa/all`);
+     const response = await fetch(`http://localhost:5000/visa/all`);
  
      if (!response.ok) {
        const message = `An error occurred: ${response.statusText}`;
@@ -48,7 +48,7 @@ export default function RecordList() {
  
  // This method will delete a visa
  async function deleteRecord(id) {
-   await fetch(`http://localhost:8090/visa/delete/${id}`, {
+   await fetch(`http://localhost:5000/visa/delete/${id}`, {
      method: "DELETE"
    });
  
