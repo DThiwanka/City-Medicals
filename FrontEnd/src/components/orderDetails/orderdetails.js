@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 import "./orderdetails.css";
 import SvgComponent from "./visa";
 import CodComponent from "./cod"
 import axios from "axios";
 import validator from 'validator'
 
+
 function Orderdetails() {
+
 
   const [fname, setFname] = useState();
   const [email, setEmail] = useState();
@@ -58,14 +62,27 @@ function Orderdetails() {
     console.log("err");
   })
 
+
  }
+
+ const cart = useSelector((state) => state.cart);
+ const { cartItems } = cart;
+ useEffect(() => {}, []);
+
+ const getCartSubTotal = () => {
+   return cartItems
+     .reduce((productPrice, item) => productPrice + item.productPrice * item.qty, 0)
+     .toFixed(2);
+ };
 
   return (
 
-    <div >
-       <form onSubmit={sendData}>
-      <h1 className="ml-4 h4 mt-3 text-decoration-underline"><i className="fa fa-check-circle" aria-hidden="true"></i>&nbsp;Order Details</h1>
-      <div className="row mt-3">
+
+    <div>
+
+      <form onSubmit={sendData}>
+        <h1 className="ml-4 h4 mt-3 text-decoration-underline"><i className="fa fa-check-circle" aria-hidden="true"></i>&nbsp;Order Details</h1>
+        <div className="row mt-3">
         <div className="col-sm-7 ml-4">
           <div className="card shadow p-3 mb-5 bg-white rounded">
             <div className="card-header">
@@ -179,7 +196,7 @@ function Orderdetails() {
               <tbody>
                 <tr className="h5">
                   <td >Sub Total</td>
-                  <td className="text-right">{Text}</td>
+                  <td className="text-right">{ getCartSubTotal() }</td>
                 </tr>
                 <tr className="text-warning">
                   <td>Discout</td>
@@ -187,7 +204,7 @@ function Orderdetails() {
                 </tr>
                 <tr className="h5 text-success">
                   <td >Total Price</td>
-                  <td className="text-right">{Text}</td>
+                  <td className="text-right">{getCartSubTotal()}</td>
                 </tr>
               </tbody>
             </table>
