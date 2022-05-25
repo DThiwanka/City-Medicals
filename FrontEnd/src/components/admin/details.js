@@ -34,7 +34,7 @@ export default function RecordList() {
  // This method fetches the records from the database.
  useEffect(() => {
    async function getRecords() {
-     const response = await fetch(`http://localhost:8090/details/all`);
+     const response = await fetch(`http://localhost:5000/details/all`);
  
      if (!response.ok) {
        const message = `An error occurred: ${response.statusText}`;
@@ -53,7 +53,7 @@ export default function RecordList() {
  
  // This method will delete a details
  async function deleteRecord(id) {
-   await fetch(`http://localhost:8090/details/delete/${id}`, {
+   await fetch(`http://localhost:5000/details/delete/${id}`, {
      method: "DELETE"
    });
  

@@ -1,50 +1,63 @@
-import React, { Component } from 'react';
-import {BrowserRouter,Route} from 'react-router-dom';
-import home from './components/home'
-import check from './components/checkout/checkout'
-import Footer from './components/footer/footer'
-import Header from './components/header/header'
-import placed from './components/placed/placed'
+import './App.css';
+import { useState } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+// Screens
+import HomeScreen from "./screens/HomeScreen";
+import ProductScreen from "./screens/ProductScreen";
+import CartScreen from "./screens/CartScreen";
+
+// Components
+//HOME
+import Navigation from './components/navigation/nav';
+
+//KAVISHA
+// import Navbar from "./components/shopping-cart/Navbar";
+import SideDrawer from "./components/shopping-cart/SideDrawer";
+import Backdrop from "./components/shopping-cart/Backdrop";
+import Footer from './components/footer/footer';
+import Header from './components/header/header';
+
+//DULAJ
 import orderdetails from './components/orderDetails/orderdetails'
-import login from './components/login/login'
-import register from './components/register/register'
-import cart from './components/shopping-cart/shoppingCart'
-import retrivealldetails from './components/retrivealldetails/retrivealldetails'
+import Checkout from './components/checkout/Checkout'
+import placed from './components/placed/placed'
 import admin from './components/admin/details'
 import visa from './components/admin/visa'
 import editdetails from './components/admin/editdetails'
-import test from './components/testcomponent/test'
 
-import Navigation from './components/navigation/nav'
+function App() {
+  const [sideToggle, setSideToggle] = useState(false);
 
-export default class App extends Component {
-  render() {
   return (
-    <BrowserRouter key={App.BrowserRouter}>
-      
+    <Router>
       <Header/>
       <Navigation/>
- 
-     <Route path="/" exact component={home} key={App.home}></Route>
-     <Route path="/check" exact component={check} key={App.check}></Route>
-     <switch>
-     <Route path="/placed" exact component={placed} key={App.placed}></Route>
-     </switch>
-     <Route path="/orderdetails" exact component={orderdetails} key={App.orderdetails}></Route>
-     <Route path="/login" exact component={login} key={App.login}></Route>
-     <Route path="/register" exact component={register} key={App.register}></Route>
-     <Route path="/test" exact component={test} key={App.test}></Route>
-     {/* <Route path="/admin/details" exact component={retrivealldetails} key={App.retrivealldetails}></Route> */}
-     <Route path="/cart" exact component={cart} key={App.cart}></Route>
-     <Route path="/admin/details" exact component={admin} key={App.admin}></Route>
-     <Route path="/admin/visa" exact component={visa} key={App.visa}></Route>
-     <Route path="/admin/editdetails/:id" exact component={editdetails} key={App.editdetails}></Route>
-     
+      {/* <Navbar click={() => setSideToggle(true)}/> */}
+      <SideDrawer show={sideToggle}/>
+      <Backdrop show={sideToggle} click={() => setSideToggle(false)}/>
+      <main>
+        <Switch>
+          {/* KAVISHA */}
+          <Route exact path="/" component={HomeScreen} />
+          <Route exact path="/search/:keyword" component={HomeScreen} />
+          <Route exact path="/product/:id" component={ProductScreen} />
+          <Route exact path="/cart" component={CartScreen} />
 
-  <Footer/>
-  </BrowserRouter>
+          {/* DULAJ - CLIENT */}
+          <Route exact path="/orderdetails" component={orderdetails} />
+          <Route exact path="/checkout" component={Checkout} />
+          <Route exact path="/placed" component={placed} />
+          {/* DULAJ - ADMIN */}
+          <Route exact path="/admin/details" component={admin} />
+          <Route exact path="/admin/visa" component={visa} />
+          <Route exact path="/admin/editdetails/:id" component={editdetails} />
 
+        </Switch>
+      </main>
+      <Footer/>
+    </Router>
   );
 }
 
-}
+export default App;

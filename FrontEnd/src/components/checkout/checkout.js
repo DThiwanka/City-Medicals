@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
 import SvgComponent from "./SvgComponent";
 import axios from "axios";
-import NumberFormat from 'react-number-format';
+import Cleave from 'cleave.js/react';
 
 
 import './checkout.css';
 function App() {
 
   const [name, setName] = useState();
-  const [cardNumber, setCardnumber] = useState();
+  const [cardNumber, setCardnumber] = useState('#### #### #### ####');
   const [cvvNumber, setCvvNumber] = useState();
   const [expDate, setExpDate] = useState();
 
@@ -29,7 +27,7 @@ function App() {
 
     //  console.log(newVisa);
     console.log(newVisa, "data data");
-    axios.post('http://localhost:8090/visa/add', newVisa).then(res => {
+    axios.post('http://localhost:5000/visa/add', newVisa).then(res => {
       alert("Visa Card Checked 💯");
 
       console.log(newVisa, "data");
@@ -46,7 +44,7 @@ function App() {
   return (
     <div>
 
-      <div className="App mb-5 mt-5 mh-100">
+      <div className="App mb-5 mt-5 mh-80">
 
         <div className="grid-container">
 
@@ -60,16 +58,8 @@ function App() {
           </div>
 
           <div className="grid-child green text-left">
+            <div className="mb-3 purple">
 
-            <Box
-              classname="mt-5"
-
-              sx={{
-                '& > :not(style)': { m: 2, width: '50ch' },
-              }}
-              noValidate
-              autoComplete="off"
-            >
               {/* <TextField id="outlined-basic" label="Outlined" variant="outlined" />
       <TextField id="filled-basic" label="Filled" variant="filled" /> */}
 
@@ -82,20 +72,44 @@ function App() {
 
               <form onSubmit={sendData}>
                 Name<br />
-                <TextField id="name" label="Name" className="mb-3 mt-1" variant="outlined" placeholder="Juliana Anderson" value={name} onChange={e => setName(e.target.value)} multiline style={{ width: '100%' }} /><br />
+                <input id="name" label="Name" className="form-control form-control-lg" variant="outlined" placeholder="Juliana Anderson" value={name} onChange={e => setName(e.target.value)} multiline style={{ width: '80%' }} /><br />
                 Card Number<br />
-                <NumberFormat customInput={TextField} format="#### #### #### ####" id="cardNumber" className="mb-3  mt-1" label="Card Number" variant="outlined" placeholder="112 3265 2345 6854" onChange={e => setCardnumber(e.target.value)} multiline style={{ width: '100%' }} /><br />
-                {/* <TextField format="###-####" id="cardNumber" className="mb-3  mt-1" label="Card Number" variant="outlined" placeholder="112 3265 2345 6854" onChange={e => setCardnumber(e.target.value)} multiline style={{ width: '100%' }} /><br /> */}
+
+
+                {/* <input id="cardNumber" 
+                className="form-control form-control-lg" 
+                  label="Card Number" variant="outlined"
+                  placeholder="112 3265 2345 6854"
+                  onChange={e => setCardnumber(e.target.value)}
+                  style={{ width: '80%' }} /> */}
+
+                <div className="input-container mt">
+                  <Cleave
+                    
+                    options={{
+                      delimiter: "-",
+                      creditCard: true,
+                      
+                    }}
+                    onChange={e => setCardnumber(e.target.value)}
+                    className="form-control form-control-lg"
+                    variant="outlined"
+                    style={{ width: '80%' }}
+                    placeholder="1234-1234-1234-1234"
+                  />
+                </div>
+
+                <br />
                 CVV Number<br />
-                <NumberFormat customInput={TextField} inputProps={{ maxLength: 3 }} className="mb-3  mt-1" id="cvvNumber" label="CVV number" onChange={e => setCvvNumber(e.target.value)} variant="outlined" placeholder="112" multiline style={{ width: '100%' }} /><br />
+                <input className="form-control form-control-lg" id="cvvNumber" label="CVV number" onChange={e => setCvvNumber(e.target.value)} variant="outlined" placeholder="112" multiline style={{ width: '80%' }} /><br />
                 Expiry Date<br />
-                <TextField type="month" id="expDate" className="mb-3  mt-1" label="Expiry Date" onChange={e => setExpDate(e.target.value)} variant="outlined" style={{ width: '100%' }} /><br />
-                <button type="submit" className="btn btn-primary d-block mr-0 ml-auto mb-3">SUBMIT</button>
+                <input type="month" id="expDate" className="form-control form-control-lg" label="Expiry Date" onChange={e => setExpDate(e.target.value)} variant="outlined" style={{ width: '80%' }} /><br />
+                <button type="submit" className="btn btn-primary">SUBMIT</button>
               </form>
-            </Box>
+          
 
           </div>
-
+          </div>
         </div>
 
       </div>
