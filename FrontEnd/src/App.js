@@ -20,7 +20,7 @@ import Header from './components/header/header';
 
 //DULAJ
 import orderdetails from './components/orderDetails/orderdetails'
-import Checkout from './components/checkout/Checkout'
+import checkout from './components/checkout/checkout'
 import placed from './components/placed/placed'
 import admin from './components/admin/details'
 import visa from './components/admin/visa'
@@ -46,7 +46,7 @@ function App() {
 
           {/* DULAJ - CLIENT */}
           <Route exact path="/orderdetails" component={orderdetails} />
-          <Route exact path="/checkout" component={Checkout} />
+          <Route exact path="/checkout" component={checkout} />
           <Route exact path="/placed" component={placed} />
           {/* DULAJ - ADMIN */}
           <Route exact path="/admin/details" component={admin} />
