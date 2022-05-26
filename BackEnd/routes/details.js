@@ -10,6 +10,7 @@ router.route("/add").post((req, res) => {
     const address = req.body.address;
     const city = req.body.city;
     const stpnumber = req.body.stpnumber;
+    const subtotal = req.body.subtotal;
     const status = req.body.status;
 
     const newDetail = new Detail({
@@ -20,6 +21,7 @@ router.route("/add").post((req, res) => {
         address,
         city,
         stpnumber,
+        subtotal,
         status
 
     })
