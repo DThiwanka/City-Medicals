@@ -5,12 +5,16 @@ import "jspdf-autotable";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 // Components
 import CartItem from "../components/shopping-cart/CartItem";
 
 // Actions
 import { addToCart, removeFromCart } from "../redux/actions/cartActions";
+
+toast.configure()
 
 const CartScreen = () => {
   const dispatch = useDispatch();
@@ -83,7 +87,7 @@ const CartScreen = () => {
     doc.autoTable(tableColumn, tableRows, { styles: { fontSize: 9, }, startY:90});
     doc.save("Cart Report.pdf");
 
-    // © 2022 Copyright @CityMedicals
+    toast.success('Your Cart Print 🗎 Generated Sucessfully',{position:toast.POSITION.TOP_RIGHT})
 
   };
 
@@ -126,6 +130,7 @@ const CartScreen = () => {
             <button className="button2" type="button" onClick={() => generatePDF(cartItems)}>Cart To Print&nbsp;<i className="fa-solid fa-print fa-lg"></i></button>
           </div>
         </div>
+        <ToastContainer/>
       </div>
     </>
   );

@@ -1,12 +1,14 @@
 import "./ProductScreen.css";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {toast} from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 // Actions
 import { getProductDetails } from "../redux/actions/productActions";
 import { addToCart } from "../redux/actions/cartActions";
 
+toast.configure()
 
 const ProductScreen = ({ match, history }) => {
   const [qty, setQty] = useState(1);
@@ -23,7 +25,7 @@ const ProductScreen = ({ match, history }) => {
 
   const addToCartHandler = () => {
     dispatch(addToCart(product._id, qty));
-    // toast.success('Product Added Successfully',{position:toast.POSITION.TOP_CENTER})
+    toast.success('Successfully Added '+ qty + '🛍️  Items To Shopping Cart',{position:toast.POSITION.TOP_RIGHT});
     // history.push(`/cart`);
   };
 
@@ -66,41 +68,13 @@ const ProductScreen = ({ match, history }) => {
                     <button type="button" onClick={addToCartHandler}>
                       Add To Cart
                     </button>
+                    <ToastContainer/>
                   </p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-          {/* <div className="productscreen__right">
-            <div className="right__info">
-              <p>
-                Price:
-                <span>${product.productPrice}</span>
-              </p>
-              <p>
-                Status:
-                <span>
-                  {product.countInStock > 0 ? "In Stock" : "Out of Stock"}
-                </span>
-              </p>
-              <p>
-                Qty
-                <select value={qty} onChange={(e) => setQty(e.target.value)}>
-                  {[...Array(product.countInStock).keys()].map((x) => (
-                    <option key={x + 1} value={x + 1}>
-                      {x + 1}
-                    </option>
-                  ))}
-                </select>
-              </p>
-              <p>
-                <button type="button" onClick={addToCartHandler}>
-                  Add To Cart
-                </button>
-              </p>
-            </div>
-          </div> */}
         </>
       )}
     </div>
