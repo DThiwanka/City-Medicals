@@ -11,6 +11,7 @@ const Details = (props) => (
    <td>{props.details.address}</td>
    <td>{props.details.city}</td>
    <td>{props.details.stpnumber}</td>
+   <td>{props.details.subtotal}</td>
    <td>{props.details.status}</td>
    <td>
     <button type="button" class="btn btn-success">
@@ -79,7 +80,7 @@ export default function RecordList() {
 
     const doc = new jspdf(); 
     var imgData = "https://upload.wikimedia.org/wikipedia/commons/2/25/Citymedicalslogo.png";   
-    const tableColumn = ["Name", "Email", "Telephone", "Address", "City", "Status"];   
+    const tableColumn = ["Name", "Email", "Telephone", "Address", "City","Total", "Status"];   
     const tableRows = [];        
     const date = Date().split(" ");        
     const dateStr = date[1] + " " + date[2] + ", " + date[3];
@@ -93,6 +94,7 @@ export default function RecordList() {
           ticket.tpnumber,
           ticket.address,
           ticket.city,
+          ticket.subtotal,
           ticket.status    
 
       ];  
@@ -142,6 +144,7 @@ export default function RecordList() {
            <th>Address</th>
            <th>City</th>
            <th>St Pnumber</th>
+           <th>Total Amount</th>
            <th>Status</th>
            <th colSpan={2}>Action</th>
          </tr>

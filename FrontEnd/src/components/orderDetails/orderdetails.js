@@ -18,7 +18,10 @@ function Orderdetails() {
   const [city, setCity] = useState();
   const [stpnumber, setStpnumber] = useState();
   const [paymethod, setPaymethod] = useState();
+  
   const [status, setStatus] = useState();
+ 
+
 
   const [emailError, setEmailError] = useState('')
   const validateEmail = (e) => {
@@ -36,6 +39,8 @@ function Orderdetails() {
  function sendData(e){
    e.preventDefault();
 
+   var subtotal = getCartSubTotal()
+
    const newDetail = {
 
     fname,
@@ -45,6 +50,7 @@ function Orderdetails() {
     city,
     stpnumber,
     paymethod,
+    subtotal,
     status
 
    }
@@ -74,6 +80,7 @@ function Orderdetails() {
      .reduce((productPrice, item) => productPrice + item.productPrice * item.qty, 0)
      .toFixed(2);
  };
+
 
   return (
 
@@ -154,6 +161,7 @@ function Orderdetails() {
                         <input
                           type="tel"
                           id="form6Example2"
+                          maxLength={10}
                           className="form-control"
                           placeholder="070-XXXXXXX"
                           onChange={e => setTpnumber(e.target.value)}
@@ -204,7 +212,21 @@ function Orderdetails() {
                 </tr>
                 <tr className="h5 text-success">
                   <td >Total Price</td>
-                  <td className="text-right">{getCartSubTotal()}</td>
+                  <td className="text-right">
+
+                  <input
+                    type="text"
+                    id="form6Example3"
+                    className="text-right"
+                    style={{backgroundColor: "transparent",border: "none",outline: "none",color: "green"}}
+                    disabled
+                    value={getCartSubTotal()}
+                   
+                  />
+
+
+
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -268,6 +290,7 @@ function Orderdetails() {
                         id="form6Example2"
                         pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                         className="form-control"
+                        maxLength={10}
                         placeholder="070-XXXXXXX"
                         onChange={e => setStpnumber(e.target.value)}
                       />
