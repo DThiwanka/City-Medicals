@@ -18,7 +18,7 @@ function Orderdetails() {
   const [city, setCity] = useState();
   const [stpnumber, setStpnumber] = useState();
   const [paymethod, setPaymethod] = useState();
-  const [subtotal, setTotal] = useState();
+  
   const [status, setStatus] = useState();
  
 
@@ -39,7 +39,7 @@ function Orderdetails() {
  function sendData(e){
    e.preventDefault();
 
-   setTotal(getCartSubTotal())
+   var subtotal = getCartSubTotal()
 
    const newDetail = {
 
@@ -161,6 +161,7 @@ function Orderdetails() {
                         <input
                           type="tel"
                           id="form6Example2"
+                          maxLength={10}
                           className="form-control"
                           placeholder="070-XXXXXXX"
                           onChange={e => setTpnumber(e.target.value)}
@@ -220,7 +221,7 @@ function Orderdetails() {
                     style={{backgroundColor: "transparent",border: "none",outline: "none",color: "green"}}
                     disabled
                     value={getCartSubTotal()}
-                    onChange={e => setTotal(e.target.value)}
+                   
                   />
 
 
@@ -289,6 +290,7 @@ function Orderdetails() {
                         id="form6Example2"
                         pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                         className="form-control"
+                        maxLength={10}
                         placeholder="070-XXXXXXX"
                         onChange={e => setStpnumber(e.target.value)}
                       />

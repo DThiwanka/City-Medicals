@@ -31,7 +31,7 @@ function App() {
       alert("Visa Card Checked 💯");
 
       console.log(newVisa, "data");
-      window.location.reload();
+      window.location = "/placed"
 
       //test
 
@@ -101,7 +101,7 @@ function App() {
 
                 <br />
                 CVV Number<br />
-                <input className="form-control form-control-lg" id="cvvNumber" label="CVV number" onChange={e => setCvvNumber(e.target.value)} variant="outlined" placeholder="112" multiline style={{ width: '80%' }} /><br />
+                <input className="form-control form-control-lg" id="cvvNumber" label="CVV number" maxLength={3} onChange={e => setCvvNumber(e.target.value)} variant="outlined" placeholder="112" multiline style={{ width: '80%' }} /><br />
                 Expiry Date<br />
                 <input type="month" id="expDate" className="form-control form-control-lg" label="Expiry Date" onChange={e => setExpDate(e.target.value)} variant="outlined" style={{ width: '80%' }} /><br />
                 <button type="submit" className="btn btn-primary">SUBMIT</button>
