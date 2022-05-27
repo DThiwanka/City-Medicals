@@ -127,7 +127,7 @@ export default function RecordList() {
      <div class="container mt-3">
        <div class="row">
        <div class="col-xs-12 col-sm-6">
-         <h3>Details List</h3>
+         <h3 text-center>Details List</h3>
        </div><div class="col-xs-12 col-sm-6">
          <button type="button" class="btn btn-outline-dark d-block mr-0 ml-auto" onClick={() => generatePDF(records)}>
            <i class="fa fa-cloud-download" aria-hidden="true"></i></button>
@@ -135,7 +135,7 @@ export default function RecordList() {
      </div>
 
 
-     <table className="table table-striped container table-responsive" style={{ marginTop: 20 }}>
+     <table className="table table-striped" style={{ marginTop: 20,marginLeft: 20,marginRight:20}}>
        <thead>
          <tr className="bg-dark text-light text-center">
            <th>Name</th>
