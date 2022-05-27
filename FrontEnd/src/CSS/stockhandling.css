@@ -126,3 +126,35 @@ td {
     background-color: #FFFFFF;
     height: 45px;
 }
+
+.stckEditBtn{
+    background-color: #039132;
+    width: 80px;
+    height: 25px;
+    border: none;
+    border-radius: 3px;
+    color: #FFFFFF;
+    box-shadow: 2px 2px 5px #039132;
+}
+
+.stckEditBtn:hover{
+    background-color: #04b840;
+    box-shadow: 2px 2px 5px #03772a;
+    cursor: pointer;
+}
+
+.stckDeleteBtn {
+    background-color: #f13636;
+    width: 80px;
+    height: 25px;
+    border: none;
+    border-radius: 3px;
+    color: #FFFFFF;
+    box-shadow: 2px 2px 5px #f13636;
+}
+
+.stckDeleteBtn:hover {
+    background-color: #ff5b5b;
+    box-shadow: 2px 2px 5px #c52424;
+    cursor: pointer;
+}

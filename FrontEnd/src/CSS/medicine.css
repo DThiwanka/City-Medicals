@@ -8,8 +8,8 @@
     margin-top: 150px;
     margin-left: 50px;
     margin-right: 50px;
-    display: grid;
-    grid-template-columns: auto auto;
+    /* display: grid;
+    grid-template-columns: auto auto; */
 }
 
 
@@ -17,7 +17,7 @@
 
 /* Starting CSS for Filter */
 
-.filter {
+/* .filter {
     background-color: #E2E2E2;
     width: 230px;
     height: 420px;
@@ -37,7 +37,6 @@
 
 .radioLabel {
     display: block;
-    /* position: relative; */
     cursor: pointer;
     margin-left: 20px;
 }
@@ -62,7 +61,7 @@
 
 .Ratings_filter h5 {
     font-family: mySamsungSharpSans;
-}
+} */
 
 
 /* Ended CSS for Filter */
@@ -77,8 +76,7 @@
 /* Starting CSS for Item Side */
 .itemsContainer {
     background-color: none;
-    width: 1540px;
-    margin-left: 263px;
+    width: 100%;
 }
 
 .categoryTitle {
@@ -93,6 +91,7 @@
 .items {
     background-color: #E2E2E2;
     border-radius: 10px;
+    padding: 10px 20px;
 }
 
 .itemBox {

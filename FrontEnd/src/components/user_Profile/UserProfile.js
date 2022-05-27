@@ -4,6 +4,7 @@ import Message from '../Loader_and_message/Message'
 import SuccessMessage from '../Loader_and_message/SuccessMessage'
 import Loader from '../Loader_and_message/Loader'
 import { getUserDetails, updateUserProfile } from '../../actions/userActions'
+import { USER_UPDATE_PROFILE_RESET } from '../../constants/userConsatants'
 import '../../CSS/Login.css'
 
 const UserProfile = (history) => {
@@ -29,14 +30,15 @@ const UserProfile = (history) => {
         if (!userInfo) {
             history.push('/login')
         } else {
-            if(!user.name) {
+            if (!user || !user.name || success) {
+                dispatch({ type: USER_UPDATE_PROFILE_RESET })
                 dispatch(getUserDetails('profile'))
             } else {
                 setName(user.name)
                 setEmail(user.email)
             }
         }
-    }, [dispatch, history, userInfo, user])
+    }, [dispatch, history, userInfo, user, success])
 
     const submitHandler = (e) => {
         e.preventDefault()
@@ -48,68 +50,68 @@ const UserProfile = (history) => {
     }
 
 
-  return (
-    
-      <div className='mainContainer'>
+    return (
 
-          <div className='loginTitleContainer'>
-              <div className='mainHead'>
-                <h1>USER PROFILE</h1>
-                <p>User details & user can update details</p>
-              </div>
-              {message && <Message variant='danger'>{message}</Message>}
-              {error && <Message variant='danger'>{error}</Message>}
-              {success && <SuccessMessage variant='success'>User Updated!</SuccessMessage>}
-              {success && <audio><source src='../../audios/userUpdated.mp3' type='audio/mpeg' /></audio>}
-              {loading && <Loader />}
-          </div> <br />
+        <div className='mainContainer'>
 
-          <form className='loginform' onSubmit={submitHandler}>
-              <label for='name'>Name</label><br />
-              <input
-                  type='name'
-                  placeholder='Enter name'
-                  id='name'
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-              /><br />
+            <div className='loginTitleContainer'>
+                <div className='mainHead'>
+                    <h1>USER PROFILE</h1>
+                    <p>User details & user can update details</p>
+                </div>
+                {message && <Message variant='danger'>{message}</Message>}
+                {error && <Message variant='danger'>{error}</Message>}
+                {success && <SuccessMessage variant='success'>User Updated!</SuccessMessage>}
+                {success && <audio><source src='../../audios/userUpdated.mp3' type='audio/mpeg' /></audio>}
+                {loading && <Loader />}
+            </div> <br />
 
-              <label for='email'>Email</label><br />
-              <input
-                  type='email'
-                  placeholder='Enter email'
-                  id='email'
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-              /><br />
+            <form className='loginform' onSubmit={submitHandler}>
+                <label for='name'>Name</label><br />
+                <input
+                    type='name'
+                    placeholder='Enter name'
+                    id='name'
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                /><br />
 
-              <label for="password">Password</label><br />
-              <input
-                  type='password'
-                  placeholder='Enter password'
-                  id='password'
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-              /><br />
+                <label for='email'>Email</label><br />
+                <input
+                    type='email'
+                    placeholder='Enter email'
+                    id='email'
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                /><br />
 
-              <label for="confirmPassword">Confirm Password</label><br />
-              <input
-                  type='password'
-                  placeholder='Confirm password'
-                  id='confirmPassword'
-                  value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-              /><br />
+                <label for="password">Password</label><br />
+                <input
+                    type='password'
+                    placeholder='Enter password'
+                    id='password'
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                /><br />
 
-              <div className='updateBtnContainer'>
-                  <button type='submit'>Update</button>
-              </div>
+                <label for="confirmPassword">Confirm Password</label><br />
+                <input
+                    type='password'
+                    placeholder='Confirm password'
+                    id='confirmPassword'
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                /><br />
 
-          </form>
+                <div className='updateBtnContainer'>
+                    <button type='submit'>Update</button>
+                </div>
 
-      </div>
-    
-    
+            </form>
+
+        </div>
+
+
     )
 };
 

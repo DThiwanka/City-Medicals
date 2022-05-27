@@ -150,14 +150,6 @@ const Stock_Edit = ({ match, history }) => {
                     /><br />
 
                     <label htmlFor="category">Product Category</label><br />
-                    {/* <select name='category' id='category'>
-                        <option value={category} onChange={(e) => setCategory(e.target.value)}>Medicine</option>
-                        <option value={category} onChange={(e) => setCategory(e.target.value)}>Baby Items</option>
-                        <option value={category} onChange={(e) => setCategory(e.target.value)}>Beauty</option>
-                        <option value={category} onChange={(e) => setCategory(e.target.value)}>Local Medicine</option>
-                        <option value={category} onChange={(e) => setCategory(e.target.value)}>Medical Equipments</option>
-                        <option value={category} onChange={(e) => setCategory(e.target.value)}>Fitness & Supplements</option>
-                    </select> */}
                     <input
                         type='text'
                         placeholder='Enter category'

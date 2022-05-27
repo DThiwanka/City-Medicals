@@ -30,21 +30,6 @@ import fitness_cat_img from '../images/Category_Images/fitness_and_supplements.p
 
 function home() {
 
-  // var myIndex = 0;
-  // carousel();
-
-  // function carousel() {
-  //   var i;
-  //   var x = document.getElementsByClassName("sliderImg");
-  //   for (i = 0; i < x.length; i++) {
-  //     x[i].style.display = "none";
-  //   }
-  //   myIndex++;
-  //   if (myIndex > x.length) { myIndex = 1 }
-  //   x[myIndex - 1].style.display = "block";
-  //   setTimeout(carousel, 5000); // Change image every 5 seconds
-  // }
-
   return (
 
     <div className="HomeContainer">
@@ -54,20 +39,20 @@ function home() {
 
         {/* Home main text */}
         <div className="main_quotes">
-          <h1 className="homeMainText">
+          <h1 className="homeMainText" style={{cursor:'default'}}>
             HEALTH & <br />
             WELLNESS <br />
             FOR EVERYONE
           </h1>
 
-          <p> CITY MEDICALS</p>
+          <p style={{ cursor: 'default' }}> CITY MEDICALS</p>
         </div>
 
         {/* Home image slider */}
         <div id="homeSlider">
-          <img className="sliderImg" src={slider1} />
-          {/* <img className="sliderImg" src={slider2} />
-          <img className="sliderImg" src={slider3} /> */}
+          <img alt='none' id="sliderImg" src={slider1} />
+          {/* <img alt='none' id="sliderImg" src={slider2} />
+          <img alt='none' id="sliderImg" src={slider3} /> */}
         </div>
 
       </div>
@@ -78,7 +63,7 @@ function home() {
 
         <div className="boxContainers">
           <div className="boxImage">
-            <img src={user_ico} />
+            <img alt='none' src={user_ico} />
           </div>
           <h3>Login/Register</h3>
           <p>Initially you want to logging to the system
@@ -88,7 +73,7 @@ function home() {
 
         <div className="boxContainers">
           <div className="boxImage">
-            <img src={medicine_ico} />
+            <img alt='none' src={medicine_ico} />
           </div>
           <h3>Choose the necessary medication</h3>
           <p>Choose the right medication for you.
@@ -98,7 +83,7 @@ function home() {
 
         <div className="boxContainers">
           <div className="boxImage">
-            <img src={cart_ico} />
+            <img alt='none' src={cart_ico} />
           </div>
           <h3>Add them to the cart</h3>
           <p>When Selecting the required medication,
@@ -107,7 +92,7 @@ function home() {
 
         <div className="boxContainers">
           <div className="boxImage">
-            <img src={payment_ico} />&nbsp; + &nbsp;<img src={verify_ico} />
+            <img alt='none' src={payment_ico} />&nbsp; + &nbsp;<img alt='none' src={verify_ico} />
           </div>
           <h3>Make the payment & verify</h3>
           <p>Please use a credit or debit card
@@ -117,7 +102,7 @@ function home() {
 
         <div id="lastBox" className="boxContainers">
           <div className="boxImage">
-            <img src={delivery_ico} />
+            <img alt='none' src={delivery_ico} />
           </div>
           <h3>Delivery to your doorstep</h3>
           <p>We will make sure that your
@@ -142,42 +127,42 @@ function home() {
 
             <div className="categoryBox">
               <Link to="/medicine">
-                <img src={medic_cat_img} />
+                <img alt='Medicines' src={medic_cat_img} />
                 <h4>Medicine</h4>
               </Link>
             </div>
 
             <div className="categoryBox">
               <a href="/baby_items">
-                <img src={babyItems_cat_img} />
+                <img alt='Baby Items' src={babyItems_cat_img} />
                 <h4>Baby Items</h4>
               </a>
             </div>
 
             <div className="categoryBox">
               <a href="/beauty">
-                <img src={beauty_cat_img} />
+                <img alt='Beauty' src={beauty_cat_img} />
                 <h4>Beauty</h4>
               </a>
             </div>
 
             <div className="categoryBox">
               <a href="/localMedicine">
-                <img src={localMedic_cat_img} />
+                <img alt='Local Medicine' src={localMedic_cat_img} />
                 <h4>Local Medicine</h4>
               </a>
             </div>
 
             <div className="categoryBox">
               <a href="/medical_equipments">
-                <img src={equipments_cat_img} />
+                <img alt='Medical Equipment' src={equipments_cat_img} />
                 <h4>Medical Equipments</h4>
               </a>
             </div>
 
             <div className="categoryBox">
               <a href="/fitness_supplements">
-                <img src={fitness_cat_img} />
+                <img alt='Fitness and Supplements' src={fitness_cat_img} />
                 <h4>Fitness & Supplements</h4>
               </a>
             </div>
@@ -186,7 +171,7 @@ function home() {
 
           {/* For Instruction */}
           <div className="instructionContainer">
-            <img src={verify_black_ico} /><p>Use the category section to search for required medicines or other materials. We kindly inform you that we have made this reservation for the convenience of the
+            <img alt='none' src={verify_black_ico} /><p style={{cursor:'default'}}>Use the category section to search for required medicines or other materials. We kindly inform you that we have made this reservation for the convenience of the
               customers who come to us.</p>
           </div>
 
@@ -219,17 +204,14 @@ function home() {
         </div>
 
         <div className="service">
-          <h4>Our Story</h4>
-          <p>City Medicals (Pvt) Ltd, is an online portal, which is a company duly incorporated in the Democratic Socialist Republic of Sri Lanka under the Companies Act
-            No.7 of 2007 bearing Registration No.62637 and having its registered office at Ground floor, No.10 Jesmin Road, Kande Waththa, Kandy.</p>
+          <h4>Our Vision</h4>
+          <p>Fostering an environment that promotes the safe, efficacious, and cost-effective use of medications. Improving the medication use process to enhance continuity of care.</p>
         </div>
 
         <div className="service">
-          <h4>Our Service</h4>
-          <p>The ageing of the population, technological advances, new public health threats, evolving patients expectations and shrinking budget are putting under pressure
-            health care systems in Europe and beyond. An increasing portion of health care expenditure is on pharmaceutical and chronic diseases. All these factors are
-            pushing for change. And community pharmacy is changing too to respond to these challenges and meet patients’ needs by shifting the focus from dispensing
-            medicines and diseases to patient.</p>
+          <h4>Why We Important</h4>
+          <p>Pharmacists help people live healthier, better lives. Pharmacists use their medication expertise to treat patients, collaborate with other health care professionals, 
+            promote population health, and manage pharmacy systems.</p>
         </div>
 
       </div>

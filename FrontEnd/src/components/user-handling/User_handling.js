@@ -87,11 +87,11 @@ const User_handling = ({ history }) => {
                                     </td>
                                     <td>
                                         <Link to={`/admin/user/${user._id}/edit`}>
-                                            <button type='button' className='stckChangeBtn'>
+                                            <button type='button' className='stckEditBtn'>
                                                 <i class="fas fa-edit"></i> Edit
                                             </button>
                                         </Link> &nbsp;
-                                        <button type='button' className='stckChangeBtn' onClick={() => deleteHandler(user._id)}>
+                                        <button type='button' className='stckDeleteBtn' onClick={() => deleteHandler(user._id)}>
                                             <i className='fas fa-trash'></i> Delete
                                         </button>
                                     </td>

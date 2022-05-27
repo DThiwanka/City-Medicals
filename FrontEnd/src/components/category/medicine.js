@@ -15,7 +15,7 @@ const Medicine = () => {
   const dispatch = useDispatch()
 
   const productList = useSelector(state => state.productList)
-  const { loading, error, products } = productList
+  const { loading, error, products } = productList 
 
   useEffect(() => {
     dispatch(listProducts())
@@ -23,77 +23,6 @@ const Medicine = () => {
 
   return (
     <div className="medicine_container">
-
-
-      {/* Implemeting Filter Part */}
-      <div className="filter">
-
-        {/* Filter subcategory */}
-        <div className="subcategory_filter">
-
-          <h5>Sub-category</h5>
-
-          <label className="radioLabel">
-            <input type="checkbox" /> Tablets
-          </label>
-
-          <label className="radioLabel">
-            <input type="checkbox" /> Barm
-          </label>
-
-          <label className="radioLabel">
-            <input type="checkbox" /> Syrup
-          </label>
-
-          <label className="radioLabel">
-            <input type="checkbox" /> Vitamins
-          </label>
-
-          <label className="radioLabel">
-            <input type="checkbox" /> Creams
-          </label>
-
-          <label className="radioLabel">
-            <input type="checkbox" /> Tubes
-          </label>
-
-        </div>
-
-
-        <br />
-
-
-        {/* Filter Ratings */}
-        <div className="Ratings_filter">
-
-          <h5>Ratings</h5>
-
-          <label className="radioLabel">
-            <input type="checkbox" /><img src={star_ico} /> <img src={star_ico} /> <img src={star_ico} /> <img src={star_ico} /> <img src={star_ico} />
-          </label>
-
-          <label className="radioLabel">
-            <input type="checkbox" /><img src={star_ico} /> <img src={star_ico} /> <img src={star_ico} /> <img src={star_ico} />
-          </label>
-
-          <label className="radioLabel">
-            <input type="checkbox" /><img src={star_ico} /> <img src={star_ico} /> <img src={star_ico} />
-          </label>
-
-          <label className="radioLabel">
-            <input type="checkbox" /><img src={star_ico} /> <img src={star_ico} />
-          </label>
-
-          <label className="radioLabel">
-            <input type="checkbox" /><img src={star_ico} />
-          </label>
-
-        </div>
-
-
-      </div>
-
-
 
       {/* Implemeting Item Part */}
       <div className="itemsContainer">
@@ -115,7 +44,7 @@ const Medicine = () => {
                 <tabel>
                   <tbody>
                     <tr>
-                      <img src={product.image} />
+                      <img alt='product_image' src={product.image} />
                     </tr>
                     <tr>
                       <h5>{product.name}</h5>
