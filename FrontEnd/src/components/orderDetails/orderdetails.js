@@ -7,6 +7,10 @@ import CodComponent from "./cod"
 import axios from "axios";
 import validator from 'validator'
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+toast.configure()
+
 
 function Orderdetails() {
 
@@ -73,7 +77,8 @@ function Orderdetails() {
   //  console.log(newDetail);
   
   axios.post('http://localhost:5000/details/add',newDetail).then(()=>{
-    alert("Details Added Successfully 🚀");
+    // alert("Details Added Successfully 🚀");
+    toast.success('Details Added Successfully 🚀',{position:toast.POSITION.TOP_RIGHT})
     console.log(newDetail);
     window.location = "/checkout"
   }).catch((err)=>{
