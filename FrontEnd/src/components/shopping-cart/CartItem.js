@@ -1,5 +1,7 @@
 import "./CartItem.css";
 import { Link } from "react-router-dom";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const CartItem = ({ item, qtyChangeHandler, removeHandler }) => {
   return (
@@ -26,12 +28,10 @@ const CartItem = ({ item, qtyChangeHandler, removeHandler }) => {
         ))}
       </select>
 
-      <button
-        className="cartItem__deleteBtn"
-        onClick={() => removeHandler(item.product)}
-      >
+      <button className="cartItem__deleteBtn" onClick={() => removeHandler(item.product)}>
         <i className="fas fa-trash"></i>
       </button>
+      <ToastContainer autoClose={2000}/>
     </div>
   );
 };
