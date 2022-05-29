@@ -7,6 +7,10 @@ import CodComponent from "./cod"
 import axios from "axios";
 import validator from 'validator'
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+toast.configure()
+
 
 function Orderdetails() {
 
@@ -31,7 +35,20 @@ function Orderdetails() {
       setEmailError('')
       setEmail(email)
     } else {
-      setEmailError('Please enter valid email')
+      setEmailError('Please Enter Valid Email')
+    }
+  }
+
+
+  const [telephoneError, settelephoneError] = useState('')
+  const validatetelephone = (e) => {
+    var tpnumber = e.target.value
+   
+    if (validator.isMobilePhone(tpnumber)) {
+      settelephoneError('')
+      setTpnumber(tpnumber)
+    } else {
+      settelephoneError('Please Enter Valid Telephone Number')
     }
   }
 
@@ -60,7 +77,8 @@ function Orderdetails() {
   //  console.log(newDetail);
   
   axios.post('http://localhost:5000/details/add',newDetail).then(()=>{
-    alert("Details Added Successfully 🚀");
+    // alert("Details Added Successfully 🚀");
+    toast.success('Details Added Successfully 🚀',{position:toast.POSITION.TOP_RIGHT})
     console.log(newDetail);
     window.location = "/checkout"
   }).catch((err)=>{
@@ -126,14 +144,18 @@ function Orderdetails() {
         }}>{emailError}</h3>
       </pre> */}
 
-      
-                      <div className="form-outline">
-                        <label className="form-label" htmlFor="form6Example1">
-                          <b>Email</b>
-                        </label>
-                        {/* <input
+
+                        <div className="form-outline">
+                          <label className="form-label" htmlFor="form6Example1">
+                            <b>Email <span style={{
+
+                              color: 'red',
+                              fontSize: '15px'
+                            }}>{emailError}</span></b>
+                          </label>
+                          {/* <input
                           type="email"
-                          required 
+                          required
                           className="form-control"
                           id="form6Example1"
                           className="form-control"
@@ -142,31 +164,33 @@ function Orderdetails() {
 
                         /> */}
 
-                        <input type="text"  className="form-control"
-                          id="form6Example1"
-                          placeholder="janith@profile.com"
-        onChange={(e) => validateEmail(e)}/>
-        <span style={{
-        
-          color: 'red',
-          fontSize : '11px'
-        }}>{emailError}</span>
+                          <input type="text" className="form-control"
+                            id="form6Example1"
+                            placeholder="janith@profile.com"
+                            onChange={(e) => validateEmail(e)} />
+                          
+                        </div>
+
                       </div>
-                    </div>
-                    <div className="col">
-                      <div className="form-outline">
-                        <label className="form-label" htmlFor="form6Example2">
-                          <b>Telephone</b>
-                        </label>
-                        <input
-                          type="tel"
-                          id="form6Example2"
-                          maxLength={10}
-                          className="form-control"
-                          placeholder="070-XXXXXXX"
-                          onChange={e => setTpnumber(e.target.value)}
-                        />
-                      </div>
+                      <div className="col">
+                        <div className="form-outline">
+                          <label className="form-label" htmlFor="form6Example2">
+                            <b>Telephone  <span style={{
+
+                              color: 'red',
+                              fontSize: '15px'
+                            }}>{telephoneError}</span></b>
+                          </label>
+                          <input
+                            type="tel"
+                            id="form6Example2"
+                            maxLength={10}
+                            className="form-control"
+                            placeholder="070-XXXXXXX"
+                            onChange={(e) => validatetelephone(e)}
+                          />
+                         
+                        </div>
                     </div>
                   </div>
                 </form>

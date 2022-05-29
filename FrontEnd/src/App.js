@@ -40,7 +40,7 @@ function App() {
         <Switch>
           {/* KAVISHA */}
           <Route exact path="/" component={HomeScreen} />
-          <Route path="/search/:keyword" component={HomeScreen} />
+          <Route exact path="/search/:keyword" component={HomeScreen} />
           <Route exact path="/product/:id" component={ProductScreen} />
           <Route exact path="/cart" component={CartScreen} />
 

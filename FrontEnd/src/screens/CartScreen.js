@@ -81,10 +81,11 @@ const CartScreen = () => {
     doc.addImage(imgData, 'JPEG', 77, 11, 60, 40);
     doc.text("Cart Item List", 14, 75).setFontSize(12);
     doc.text(`Report Generated Date - ${dateStr}`, 14, 80).setFontSize(13);
-    doc.text(`Total Amount - ${total}`, 14, 89);
-    doc.text("All Right Reserved", 90, 284);
+    doc.text(`Total Amount - ${total}`, 14, 89).setFontSize(10);
+    doc.text("© 2022 Copyright @CityMedicals", 79, 278).setFontSize(10);
+    doc.text("All Right Reserved", 90, 284).setFontSize(10);
     doc.text("citymedicals@gmail.com | www.citymedicals.netlify.app | +94119 119 119", 47, 290);
-    doc.text("© 2022 Copyright @CityMedicals", 79, 278).setFontSize(20);
+    
     
 
     // right down width height
@@ -95,6 +96,14 @@ const CartScreen = () => {
     toast.success('Your Cart Print 🗎 Generated Sucessfully',{position:toast.POSITION.TOP_RIGHT, autoClose: 2000})
 
   };
+
+  const clearLocalStorage = () =>{
+        
+    localStorage.removeItem('cart')
+    localStorage.removeItem('Authorization')
+    toast.success('Local Storage Clearing Completed',{position:toast.POSITION.TOP_RIGHT, autoClose: 2000})
+    // window.location = "/login"
+  }
 
   return (
     <>
@@ -127,7 +136,7 @@ const CartScreen = () => {
           </div>
           <div>
             <Link to="/orderdetails">
-              <button className="button1" disabled={cartItems.length === 0}>Checkout&nbsp;<i className="fa-solid fa-credit-card fa-lg"></i></button>
+              <button className="button1" disabled={cartItems.length === 0} onClick={() => clearLocalStorage()}>Checkout&nbsp;<i className="fa-solid fa-credit-card fa-lg"></i></button>
             </Link>
           </div>
           {/* pdf generate */}

@@ -1,8 +1,28 @@
 import React from 'react'
+import { useEffect } from "react";
+import { useSelector,useDispatch } from "react-redux";
 import Deliverysvg from './Deliverysvg'
 import './placed.css'
 
-function placed() {
+// Components
+import CartItem from "../../components/shopping-cart/CartItem";
+
+// Actions
+import { addToCart } from "../../redux/actions/cartActions";
+
+function Placed() {
+
+    const dispatch = useDispatch();
+    const cart = useSelector((state) => state.cart);
+    const { cartItems } = cart;
+
+    useEffect(() => { }, []);
+    const qtyChangeHandler = (id, qty) => {
+
+        dispatch(addToCart(id, qty));
+
+    };
+
     return (
         <div class="d-md-flex h-md-100">
 
@@ -13,7 +33,7 @@ function placed() {
 
                         <div className="d-flex justify-content-center font-weight-bold">
                             <div className="hclass mt-3">
-                                <h1>Order <d style={{ color: '#11ad00' }}> Placed </d>!</h1>
+                                <h1>Order <d style={{ color: '#11ad00' }}> Placed { } </d>!</h1>
                                 <p>Order will recived as soon as possible<br />
                                     within two or three working days.
                                 </p>
@@ -58,14 +78,16 @@ function placed() {
                                     </h2>
                                     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
-                                            <ol>
-                                                <li>{Number}</li>
-                                                <li>{Number}</li>
-                                                <li>{Number}</li>
-                                                <li>{Number}</li>
-                                                <li>{Number}</li>
-                                                <li>{Number}</li>
-                                            </ol>
+
+                                        {cartItems.map((item) => (
+                                            <CartItem
+                                                key={item.product}
+                                                item={item}
+                                                qtyChangeHandler={qtyChangeHandler}
+                                                
+                                            />
+                                            ))
+                                        }
                                         </div>
                                     </div>
                                 </div>
@@ -78,7 +100,7 @@ function placed() {
                                 <button type="button" class="btn-close ml-2" data-bs-dismiss="alert"></button>
 
                             </div>
-                            <button class="btn btn-primary align-content-right" type="button" id="btnnext" style={{float:'right', position:'relative',marginBottom:'10px'}}>Next</button>
+                            <button class="btn btn-primary align-content-right" type="button" id="btnnext" onClick={() => alert("Thank You For Using City Medicals!")} style={{float:'right', position:'relative',marginBottom:'10px'}}>Next</button>
                         </div>
 
 
@@ -99,4 +121,4 @@ function placed() {
     )
 }
 
-export default placed;
+export default Placed;
