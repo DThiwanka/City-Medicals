@@ -85,9 +85,6 @@ const CartScreen = () => {
     doc.text("© 2022 Copyright @CityMedicals", 79, 278).setFontSize(10);
     doc.text("All Right Reserved", 90, 284).setFontSize(10);
     doc.text("citymedicals@gmail.com | www.citymedicals.netlify.app | +94119 119 119", 47, 290);
-    
-    
-
     // right down width height
 
     doc.autoTable(tableColumn, tableRows, { styles: { fontSize: 9, }, startY:97});
@@ -97,8 +94,8 @@ const CartScreen = () => {
 
   };
 
+  //clear local storage
   const clearLocalStorage = () =>{
-        
     localStorage.removeItem('cart')
     localStorage.removeItem('Authorization')
     toast.success('Local Storage Clearing Completed',{position:toast.POSITION.TOP_RIGHT, autoClose: 2000})
