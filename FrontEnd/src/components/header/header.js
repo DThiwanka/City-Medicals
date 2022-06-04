@@ -1,10 +1,10 @@
 import React from 'react'
 // import { Link } from "react-router-dom";
-// import { BrowserRouter as Route } from "react-router-dom";
- import { useSelector } from "react-redux";
+import { BrowserRouter as Route } from "react-router-dom";
+import { useSelector } from "react-redux";
 import './header.css'
 import '../shopping-cart/Navbar.css'
-// import SearchBox from "../../components/shopping-cart/SearchBox"
+import SearchBox from "../../components/shopping-cart/SearchBox"
 
 const Header = ({ click }) => {
     const cart = useSelector((state) => state.cart);
@@ -35,12 +35,12 @@ const Header = ({ click }) => {
                   <div className="col-rt-3 equal-height px-5">
                     <div className="sb-example-3">
                       <div className="search__container">
+                        <Route render={({ history }) => <SearchBox history={history} />} /> <br/>
                         <input
                           className="search__input"
                           type="text"
                           placeholder="Search Pharmacy Items..."
                         />
-                        {/* <Route render={({ history }) => <SearchBox history={history} />} /> <br/> */}
                       </div>
                     </div>
                   </div>

@@ -25,7 +25,7 @@ const ProductScreen = ({ match, history }) => {
 
   const addToCartHandler = () => {
     dispatch(addToCart(product._id, qty));
-    toast.success('Successfully Added '+ qty + '🛍️  Items To Shopping Cart',{position:toast.POSITION.TOP_RIGHT});
+    toast.success('Successfully Added '+ qty + '🛍️  Items To Shopping Cart',{position:toast.POSITION.TOP_RIGHT, autoClose: 2000});
     // history.push(`/cart`);
   };
 
@@ -65,10 +65,10 @@ const ProductScreen = ({ match, history }) => {
                     </select>
                   </p>
                   <p>
-                    <button type="button" onClick={addToCartHandler}>
+                    <button type="button" disabled={product.countInStock === 0} onClick={addToCartHandler}>
                       Add To Cart
                     </button>
-                    <ToastContainer/>
+                    <ToastContainer autoClose={2000}/>
                   </p>
                 </div>
               </div>
