@@ -2,9 +2,13 @@ import React, { useState } from 'react';
 import SvgComponent from "./SvgComponent";
 import axios from "axios";
 import Cleave from 'cleave.js/react';
-
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './checkout.css';
+toast.configure()
+
+
+
 function App() {
 
   const [name, setName] = useState();
@@ -28,10 +32,11 @@ function App() {
     //  console.log(newVisa);
     console.log(newVisa, "data data");
     axios.post('http://localhost:5000/visa/add', newVisa).then(res => {
-      alert("Visa Card Checked 💯");
+      // alert("Visa Card Checked 💯");
+      toast.success('Visa Card Checked 💯',{position:toast.POSITION.TOP_RIGHT})
 
       console.log(newVisa, "data");
-      window.location.reload();
+      window.location = "/placed"
 
       //test
 
@@ -105,6 +110,7 @@ function App() {
                 Expiry Date<br />
                 <input type="month" id="expDate" className="form-control form-control-lg" label="Expiry Date" onChange={e => setExpDate(e.target.value)} variant="outlined" style={{ width: '80%' }} /><br />
                 <button type="submit" className="btn btn-primary">SUBMIT</button>
+                <ToastContainer/>
               </form>
           
 
