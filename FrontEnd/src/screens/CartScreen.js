@@ -94,13 +94,12 @@ const CartScreen = () => {
 
   };
 
-//clear local storage
+  //clear local storage
   const clearLocalStorage = () =>{
     localStorage.removeItem('cart')
     localStorage.removeItem('Authorization')
     toast.success('Local Storage Clearing Completed',{position:toast.POSITION.TOP_RIGHT, autoClose: 2000})
     // window.location = "/login"
-
   }
 
   return (
@@ -134,7 +133,7 @@ const CartScreen = () => {
           </div>
           <div>
             <Link to="/orderdetails">
-               <button className="button1" disabled={cartItems.length === 0} onClick={() => clearLocalStorage()}>Checkout&nbsp;<i className="fa-solid fa-credit-card fa-lg"></i></button>A
+              <button className="button1" disabled={cartItems.length === 0} onClick={() => clearLocalStorage()}>Checkout&nbsp;<i className="fa-solid fa-credit-card fa-lg"></i></button>
             </Link>
           </div>
           {/* pdf generate */}
