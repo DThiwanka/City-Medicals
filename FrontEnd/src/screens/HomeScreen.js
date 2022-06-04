@@ -23,7 +23,7 @@ function HomeScreen() {
 
   return (
     <div className="homescreen">
-      {/* <Route render={({ history }) => <SearchBox history={history} />} /> <br/> */}
+      
       <h2 className="homescreen__title">Latest Products</h2>
 
       <div className="homescreen__products">

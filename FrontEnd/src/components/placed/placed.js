@@ -100,7 +100,7 @@ function Placed() {
                                 <button type="button" class="btn-close ml-2" data-bs-dismiss="alert"></button>
 
                             </div>
-                            <button class="btn btn-primary align-content-right" type="button" id="btnnext" style={{float:'right', position:'relative',marginBottom:'10px'}}>Next</button>
+                            <button class="btn btn-primary align-content-right" type="button" id="btnnext" onClick={() => alert("Thank You For Using City Medicals!")} style={{float:'right', position:'relative',marginBottom:'10px'}}>Next</button>
                         </div>
 
 

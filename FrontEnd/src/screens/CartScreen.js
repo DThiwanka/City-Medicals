@@ -30,6 +30,7 @@ const CartScreen = () => {
 
   const removeFromCartHandler = (id) => {
     dispatch(removeFromCart(id));
+    toast.success('Remove Item From Your Cart',{position:toast.POSITION.TOP_RIGHT, autoClose: 2000})
   };
 
   const getCartCount = () => {
@@ -47,11 +48,12 @@ const CartScreen = () => {
 
     const doc = new jspdf(); 
     var imgData = "https://upload.wikimedia.org/wikipedia/commons/2/25/Citymedicalslogo.png";   
-    const tableColumn = ["Name", "Quantity", "Price"];  
-    // const subtotal = ["Sub Total"] ;   
+    const tableColumn = ["Name", "Quantity", "Per Item Price"];   
     const tableRows = [];        
     const date = Date().split(" ");        
     const dateStr = date[1] + " " + date[2] + ", " + date[3];
+    const total = getCartSubTotal();
+
 
     tickets.map(ticket => {
 
@@ -59,37 +61,49 @@ const CartScreen = () => {
           
           ticket.productName,     
           ticket.qty,
-          ticket.productPrice,    
+          ticket.productPrice,
+          ticket.total    
 
       ];  
       tableRows.push(ticketData);  
     })
 
-    tickets.map(tickettot => {
+    tickets.map(ticket => {
 
-      const total = [       
-      tickettot.totalPrice,       
+      const total = [ 
+
+          ticket.total,     
 
       ];
       tableRows.push(total);
     })
 
     doc.addImage(imgData, 'JPEG', 77, 11, 60, 40);
-    doc.text("Cart Item List", 14, 75).setFontSize(10);
-    doc.text(`Date - ${dateStr}`, 14, 82);
-    doc.text("All Right Reserved", 90, 284);
+    doc.text("Cart Item List", 14, 75).setFontSize(12);
+    doc.text(`Report Generated Date - ${dateStr}`, 14, 80).setFontSize(13);
+    doc.text(`Total Amount - ${total}`, 14, 89).setFontSize(10);
+    doc.text("© 2022 Copyright @CityMedicals", 79, 278).setFontSize(10);
+    doc.text("All Right Reserved", 90, 284).setFontSize(10);
     doc.text("citymedicals@gmail.com | www.citymedicals.netlify.app | +94119 119 119", 47, 290);
-    doc.text("© 2022 Copyright @CityMedicals", 79, 278).setFontSize(20);
+    
     
 
     // right down width height
 
-    doc.autoTable(tableColumn, tableRows, { styles: { fontSize: 9, }, startY:90});
+    doc.autoTable(tableColumn, tableRows, { styles: { fontSize: 9, }, startY:97});
     doc.save("Cart Report.pdf");
 
-    toast.success('Your Cart Print 🗎 Generated Sucessfully',{position:toast.POSITION.TOP_RIGHT})
+    toast.success('Your Cart Print 🗎 Generated Sucessfully',{position:toast.POSITION.TOP_RIGHT, autoClose: 2000})
 
   };
+
+  const adminLogout = () =>{
+        
+    localStorage.removeItem('cart')
+    localStorage.removeItem('Authorization')
+    toast.success('Log out successfuly',{position:toast.POSITION.TOP_CENTER});
+    // window.location = "/login"
+  }
 
   return (
     <>
@@ -122,15 +136,15 @@ const CartScreen = () => {
           </div>
           <div>
             <Link to="/orderdetails">
-              <button className="button1">Checkout&nbsp;<i className="fa-solid fa-credit-card fa-lg"></i></button>
+              <button className="button1" disabled={cartItems.length === 0} onClick={() => adminLogout()}>Checkout&nbsp;<i className="fa-solid fa-credit-card fa-lg"></i></button>
             </Link>
           </div>
           {/* pdf generate */}
           <div>
-            <button className="button2" type="button" onClick={() => generatePDF(cartItems)}>Cart To Print&nbsp;<i className="fa-solid fa-print fa-lg"></i></button>
+            <button className="button2" type="button" disabled={cartItems.length === 0} onClick={() => generatePDF(cartItems)}>Cart To Print&nbsp;<i className="fa-solid fa-print fa-lg"></i></button>
           </div>
         </div>
-        <ToastContainer/>
+        <ToastContainer autoClose={2000}/>
       </div>
     </>
   );
