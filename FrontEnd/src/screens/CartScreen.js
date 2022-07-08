@@ -26,6 +26,7 @@ const CartScreen = () => {
 
   const qtyChangeHandler = (id, qty) => {
     dispatch(addToCart(id, qty));
+    toast.success('Quantity Updated Successfully',{position:toast.POSITION.TOP_RIGHT, autoClose: 2000})
   };
 
   const removeFromCartHandler = (id) => {
